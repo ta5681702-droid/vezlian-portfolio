@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Dynamic SEO Tags populated via JS -->
+    <title id="seo-title">MD Tanim Chowdhury | Professional Graphic Designer</title>
+    <meta id="seo-desc" name="description" content="MD Tanim Chowdhury একজন Creative Graphic Designer। Logo, Branding, Social Media, Poster, Flyer, Brochure এবং বিভিন্ন Visual Design নিয়ে কাজ করেন।">
+    <meta id="seo-keywords" name="keywords" content="Graphic Designer, MD Tanim Chowdhury, Brand Identity, Logo Design, Sylhet Designer, Bangladesh Graphic Designer">
+    <meta name="author" content="MD Tanim Chowdhury">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta id="og-title" property="og:title" content="MD Tanim Chowdhury | Professional Graphic Designer">
+    <meta id="og-desc" property="og:description" content="MD Tanim Chowdhury একজন Creative Graphic Designer। Logo, Branding, Social Media, Poster, Flyer, Brochure এবং বিভিন্ন Visual Design নিয়ে কাজ করেন।">
+    
+    <!-- Google Fonts: Hind Siliguri & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Plus Jakarta Sans', 'sans-serif'],
+                        english: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS & Variables -->
+    <style>
+        /* ================================
+           CSS COLOR SYSTEM & VARIABLES
+           ================================ */
+        :root {
+            --primary: #00E5FF;
+            --secondary: #3a86ff;
+            --accent: #7b2cff;
+            --bg: #070b14;
+            --surface: rgba(255, 255, 255, 0.04);
+            --surface-hover: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.1);
+            --border-glow: rgba(0, 229, 255, 0.3);
+            --text: #ffffff;
+            --muted: #aab3c5;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Hind Siliguri', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Background Glows */
+        .bg-glow-1 {
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.12) 0%, rgba(7, 11, 20, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-glow-2 {
+            position: fixed;
+            bottom: -10%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(123, 44, 255, 0.12) 0%, rgba(7, 11, 20, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(0, 229, 255, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 229, 255, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070b14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Mouse Cursor Glow (Desktop) */
+        #cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 350px;
+            height: 350px;
+            margin-left: -175px;
+            margin-top: -175px;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            #cursor-glow { display: block; }
+        }
+
+        /* Dynamic Progress Bar Animation */
+        .skill-progress {
+            width: 0%;
+            transition: width 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
+        }
+
+        /* Project Card Image Hover Effects */
+        .project-img-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img-wrapper img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-img-wrapper.long-preview img {
+            transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .project-card:hover .project-img-wrapper:not(.long-preview) img {
+            transform: scale(1.08);
+        }
+
+        .project-card:hover .project-img-wrapper.long-preview img {
+            transform: translateY(-45%);
+        }
+
+        /* Text Gradients */
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #00E5FF 0%, #3a86ff 50%, #7b2cff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Reduced Motion Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="selection:bg-cyan-500 selection:text-black">
+
+    <!-- Ambient Glowing Backgrounds -->
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+    <div id="cursor-glow"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 z-50 transition-all duration-150" style="width: 0%"></div>
+
+    <!-- ================================
+       1. FLOATING NAVIGATION BAR
+       ================================ -->
+    <header class="fixed top-0 left-0 w-full z-40 px-4 sm:px-8 py-4 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto glass-panel rounded-full px-6 py-3 flex items-center justify-between">
+            
+            <!-- Dynamic Logo -->
+            <a href="#home" class="flex items-center gap-3 group" id="nav-logo-container">
+                <!-- Logo will be dynamically rendered here -->
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-1 sm:gap-2 text-sm font-medium">
+                <a href="#home" class="nav-link px-4 py-2 rounded-full text-white/80 hover:text-cyan-400 hover:bg-white/5 transition-all">হোম</a>
+                <a href="#about" class="nav-link px-4 py-2 rounded-full text-white/80 hover:text-cyan-400 hover:bg-white/5 transition-all">আমার সম্পর্কে</a>
+                <a href="#skills" class="nav-link px-4 py-2 rounded-full text-white/80 hover:text-cyan-400 hover:bg-white/5 transition-all">দক্ষতা</a>
+                <a href="#services" class="nav-link px-4 py-2 rounded-full text-white/80 hover:text-cyan-400 hover:bg-white/5 transition-all">সেবা</a>
+                <a href="#portfolio" class="nav-link px-4 py-2 rounded-full text-white/80 hover:text-cyan-400 hover:bg-white/5 transition-all">প্রজেক্ট</a>
+                <a href="#contact" class="nav-link px-4 py-2 rounded-full text-white/80 hover:text-cyan-400 hover:bg-white/5 transition-all">যোগাযোগ</a>
+            </nav>
+
+            <!-- Right CTA Button -->
+            <div class="hidden md:flex items-center">
+                <a href="#contact" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-cyan-400 to-blue-600 text-slate-950 hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all transform hover:-translate-y-0.5">
+                    যোগাযোগ করুন
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menu-btn" class="md:hidden text-white text-2xl focus:outline-none p-2" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars-staggered" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto mt-3 glass-panel rounded-2xl p-6 flex-col gap-4 text-center">
+            <a href="#home" class="mobile-nav-link py-2 text-white/90 hover:text-cyan-400 border-b border-white/5">হোম</a>
+            <a href="#about" class="mobile-nav-link py-2 text-white/90 hover:text-cyan-400 border-b border-white/5">আমার সম্পর্কে</a>
+            <a href="#skills" class="mobile-nav-link py-2 text-white/90 hover:text-cyan-400 border-b border-white/5">দক্ষতা</a>
+            <a href="#services" class="mobile-nav-link py-2 text-white/90 hover:text-cyan-400 border-b border-white/5">সেবা</a>
+            <a href="#portfolio" class="mobile-nav-link py-2 text-white/90 hover:text-cyan-400 border-b border-white/5">প্রজেক্ট</a>
+            <a href="#contact" class="mobile-nav-link py-2 text-white/90 hover:text-cyan-400">যোগাযোগ</a>
+            <a href="#contact" class="mt-2 w-full py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-600 text-slate-950 font-bold block">
+                যোগাযোগ করুন
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- ================================
+           2. HERO SECTION
+           ================================ -->
+        <section id="home" class="min-h-[90vh] flex items-center relative py-12 lg:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-xs sm:text-sm font-medium text-cyan-400 border border-cyan-500/20">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                            <span id="hero-badge-text"></span>
+                        </div>
+
+                        <!-- Main Heading & Name -->
+                        <div class="space-y-2">
+                            <h2 class="text-xl sm:text-2xl font-medium text-slate-300" id="hero-greeting"></h2>
+                            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                                <span id="hero-pro-name" class="text-gradient-primary"></span>
+                            </h1>
+                        </div>
+
+                        <!-- Dynamic Typing Text -->
+                        <div class="text-xl sm:text-2xl font-bold text-slate-200 flex items-center gap-2 h-10">
+                            <span>আমি একজন</span>
+                            <span id="typed-text" class="text-cyan-400 border-b-2 border-cyan-400 pb-0.5 font-english"></span>
+                        </div>
+
+                        <!-- Bio Intro -->
+                        <p id="hero-bio" class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
+                            <!-- Populated dynamically -->
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-wrap items-center gap-4 pt-2">
+                            <a href="#portfolio" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-slate-950 font-bold text-sm sm:text-base hover:shadow-[0_0_25px_rgba(0,229,255,0.4)] transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                                <span>আমার কাজ দেখুন</span>
+                                <i class="fa-solid fa-arrow-down-long text-xs"></i>
+                            </a>
+                            
+                            <a href="#contact" class="px-7 py-3.5 rounded-full glass-card hover:bg-white/10 text-white font-medium text-sm sm:text-base border border-white/15 transition-all transform hover:-translate-y-1">
+                                যোগাযোগ করুন
+                            </a>
+
+                            <a id="hero-behance-btn" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-full glass-card text-cyan-400 hover:text-white hover:bg-cyan-500/10 font-english font-medium text-sm border border-cyan-500/20 transition-all flex items-center gap-2">
+                                <i class="fa-brands fa-behance text-lg"></i>
+                                <span>Behance</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Image with Glass Frame & Floating Elements -->
+                    <div class="lg:col-span-5 flex justify-center relative">
+                        <div class="relative w-72 sm:w-80 lg:w-96 group">
+                            
+                            <!-- Animated Ring Glow -->
+                            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-600 opacity-30 blur-xl group-hover:opacity-60 transition duration-1000"></div>
+                            
+                            <!-- Profile Frame -->
+                            <div class="relative glass-card rounded-3xl p-3 border border-white/20 overflow-hidden shadow-2xl">
+                                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-900 relative">
+                                    <img id="hero-profile-img" src="" alt="Profile Image" class="w-full h-full object-cover object-top transition duration-700 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Floating Glass Stats -->
+                            <div id="hero-floating-stats-container" class="absolute inset-0 pointer-events-none">
+                                <!-- Rendered dynamically -->
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================
+           3. ABOUT SECTION
+           ================================ -->
+        <section id="about" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-white/10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        
+                        <!-- Profile Image Thumb -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden glass-card p-2">
+                                <img id="about-profile-img" src="" alt="MD Tanim Chowdhury" class="w-full h-full object-cover rounded-xl">
+                                <div class="absolute bottom-4 left-4 right-4 glass-panel p-3 rounded-xl border border-white/15 text-center">
+                                    <span id="about-exp-badge" class="text-cyan-400 font-bold font-english text-lg">2+ Years</span>
+                                    <span class="block text-xs text-slate-300">Professional Experience</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- About Info -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                                আমার সম্পর্কে
+                            </div>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-white">
+                                ভিজ্যুয়াল ডিজাইনের মাধ্যমে ব্র্যান্ডকে নতুন উচ্চতায় নিয়ে যাওয়া
+                            </h2>
+                            <p id="about-text" class="text-slate-300 leading-relaxed text-base sm:text-lg">
+                                <!-- Dynamic content -->
+                            </p>
+
+                            <!-- Design Philosophy Box -->
+                            <div class="p-5 rounded-2xl bg-gradient-to-r from-cyan-950/30 via-slate-900/50 to-purple-950/30 border border-cyan-500/20">
+                                <h3 class="text-sm font-semibold text-cyan-400 mb-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    <span>ডিজাইন ফিলোসফি</span>
+                                </h3>
+                                <p id="about-philosophy" class="text-slate-200 italic font-medium">
+                                    <!-- Dynamic content -->
+                                </p>
+                            </div>
+
+                            <div class="pt-2 flex items-center gap-4">
+                                <a href="#contact" class="px-6 py-3 rounded-full bg-cyan-400 text-slate-950 font-bold hover:bg-cyan-300 transition">
+                                    আমার সাথে কাজ করুন
+                                </a>
+                                <a id="about-phone-btn" href="tel:" class="px-6 py-3 rounded-full glass-card hover:bg-white/10 text-white font-medium flex items-center gap-2">
+                                    <i class="fa-solid fa-phone text-cyan-400"></i>
+                                    <span id="about-phone-num">01793155929</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================
+           4. SKILLS SECTION
+           ================================ -->
+        <section id="skills" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        দক্ষতা ও টুলস
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">আমার মূল প্রফেশনাল দক্ষতাসমূহ</h2>
+                    <p class="text-slate-400">আধুনিক সফটওয়্যার ও ডিজাইন নীতির সঠিক প্রয়োগে সর্বোচ্চ গুণগত মানের কাজ নিশ্চিত করি।</p>
+                </div>
+
+                <!-- Skills Grid -->
+                <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Dynamic skill cards injected here -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================================
+           5. SERVICES SECTION
+           ================================ -->
+        <section id="services" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        সার্ভিস
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">আমি যেসকল সেবা প্রদান করি</h2>
+                    <p class="text-slate-400">আপনার ব্র্যান্ড ও ব্যবসার প্রচারণায় প্রয়োজনীয় প্রতিটি গ্রাফিক ডিজাইন সার্ভিস।</p>
+                </div>
+
+                <!-- Services Dynamic Grid -->
+                <div id="services-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Dynamic Service Cards -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================================
+           6. DESIGN PROCESS SECTION
+           ================================ -->
+        <section id="process" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-semibold uppercase tracking-wider">
+                        ওয়ার্কফ্লো
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">আমি যেভাবে কাজ করি</h2>
+                    <p class="text-slate-400">একটি সুনির্দিষ্ট ও পেশাদার প্রক্রিয়ার মাধ্যমে প্রতিটি প্রজেক্ট সফলভাবে সম্পন্ন করি।</p>
+                </div>
+
+                <div id="process-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Dynamic Process Cards -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================================
+           7. EXPERIENCE SECTION
+           ================================ -->
+        <section id="experience" class="py-20 relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        অভিজ্ঞতা
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">গ্রাফিক ডিজাইন জার্নি</h2>
+                    <p class="text-slate-400">গত ২ বছর ধরে ক্লায়েন্টদের জন্য নান্দনিক ডিজাইন তৈরির পথচলা।</p>
+                </div>
+
+                <div id="experience-container" class="space-y-6 relative border-l-2 border-cyan-500/30 ml-4 sm:ml-8 pl-6 sm:pl-8">
+                    <!-- Dynamic Experience Timeline -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================================
+           8. PORTFOLIO SECTION
+           ================================ -->
+        <section id="portfolio" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        পোর্টফোলিও
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">আমার নির্বাচিত কাজ</h2>
+                    <p class="text-slate-400">কিছু নির্বাচিত Creative Design Project যা আমার কাজের অভিজ্ঞতা ও মান ফুটিয়ে তোলে।</p>
+                </div>
+
+                <!-- Portfolio Filters -->
+                <div id="portfolio-filters" class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div id="portfolio-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Dynamic Project Cards -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================================
+           9. WHY WORK WITH ME
+           ================================ -->
+        <section id="why-me" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        কেন আমি?
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">কেন আমার সাথে কাজ করবেন?</h2>
+                    <p class="text-slate-400">আপনার ডিজাইন চাহিদাগুলো সঠিক ও প্রফেশনালভাবে সম্পন্ন করার প্রধান কারণসমূহ।</p>
+                </div>
+
+                <div id="why-me-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic Why Me Cards -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================================
+           10. TESTIMONIALS (Dynamic / Auto-Hide)
+           ================================ -->
+        <section id="testimonials" class="py-20 relative hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        রিভিউ
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">ক্লায়েন্টদের অভিমত</h2>
+                </div>
+                <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Populated if array has items -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================
+           11. CONTACT SECTION
+           ================================ -->
+        <section id="contact" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        যোগাযোগ
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">চলুন একসাথে কাজ করি</h2>
+                    <p class="text-slate-400">আপনার পরবর্তী design project নিয়ে কথা বলতে আমার সাথে সরাসরি যোগাযোগ করুন।</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    
+                    <!-- Left Contact Details -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="glass-panel rounded-3xl p-8 border border-white/10 space-y-6">
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block mb-1">ফোন / হোয়াটসঅ্যাপ</span>
+                                    <a id="contact-phone" href="" class="text-white font-medium hover:text-cyan-400 transition font-english"></a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xl shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block mb-1">ইমেইল</span>
+                                    <a id="contact-email" href="" class="text-white font-medium hover:text-cyan-400 transition font-english"></a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block mb-1">ঠিকানা</span>
+                                    <span id="contact-location" class="text-white font-medium"></span>
+                                </div>
+                            </div>
+
+                            <hr class="border-white/10">
+
+                            <div>
+                                <span class="text-xs text-slate-400 block mb-3">সোশ্যাল মিডিয়া প্রোফাইল</span>
+                                <div id="contact-socials" class="flex items-center gap-3">
+                                    <!-- Dynamic Social Links -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right Glass Contact Form -->
+                    <div class="lg:col-span-7">
+                        <div class="glass-panel rounded-3xl p-8 border border-white/10">
+                            
+                            <form id="portfolio-contact-form" class="space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-300 mb-2">আপনার নাম *</label>
+                                        <input type="text" id="form-name" required placeholder="আপনার পূর্ণ নাম লিখুন" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-300 mb-2">ফোন নম্বর *</label>
+                                        <input type="tel" id="form-phone" required placeholder="আপনার মোবাইল নম্বর" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-2">ইমেইল অ্যাড্রেস *</label>
+                                    <input type="email" id="form-email" required placeholder="example@domain.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-2">আপনার বার্তা / প্রজেক্ট বিবরণ *</label>
+                                    <textarea id="form-message" rows="4" required placeholder="প্রজেক্টের বিস্তারিত এখানে লিখুন..." class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition"></textarea>
+                                </div>
+
+                                <button type="submit" id="form-submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-slate-950 font-bold text-base hover:shadow-[0_0_25px_rgba(0,229,255,0.4)] transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                    <span>মেসেজ পাঠান</span>
+                                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                                </button>
+
+                                <!-- Form Alert Dynamic Container -->
+                                <div id="form-status" class="hidden p-4 rounded-xl text-center text-sm font-medium"></div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================================
+           12. GOOGLE MAP SECTION
+           ================================ -->
+        <section id="map-section" class="py-10 relative hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-panel rounded-3xl p-3 border border-white/10 overflow-hidden shadow-2xl">
+                    <iframe id="google-map-iframe" class="w-full h-80 rounded-2xl border-0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================================
+       13. FOOTER
+       ================================ -->
+    <footer class="mt-20 border-t border-white/10 relative bg-slate-950/60 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <!-- Footer Brand / Logo -->
+                <div class="flex items-center gap-3" id="footer-logo-container">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <!-- Footer Tagline -->
+                <p id="footer-tagline" class="text-slate-400 text-sm text-center md:text-left">
+                    সৃজনশীল ডিজাইনের মাধ্যমে আপনার ব্র্যান্ডকে আরও শক্তিশালী করে তুলতে প্রস্তুত।
+                </p>
+
+                <!-- Footer Socials -->
+                <div id="footer-socials" class="flex items-center gap-3">
+                    <!-- Dynamic Social Links -->
+                </div>
+
+            </div>
+
+            <hr class="border-white/10 my-8">
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+                <p id="footer-copyright">© 2026 MD Tanim Chowdhury. সর্বস্বত্ব সংরক্ষিত।</p>
+                
+                <!-- Back to top button -->
+                <button id="back-to-top" class="flex items-center gap-2 hover:text-cyan-400 transition focus:outline-none">
+                    <span>উপরে যান</span>
+                    <i class="fa-solid fa-arrow-up text-cyan-400"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================================
+       JAVASCRIPT ARCHITECTURE
+       ================================ -->
+    <script>
+        // ================================
+        // CENTRAL PORTFOLIO DATA OBJECT
+        // ================================
+        const portfolioData = {
+            personal: {
+                fullName: "Tamim Hussain Chowdhury",
+                professionalName: "MD Tanim Chowdhury",
+                title: "Graphic Designer",
+                experience: "2 Years",
+                location: "Sylhet, Bangladesh",
+                phone: "01793155929",
+                email: "tanimhusain929@gmail.com",
+                
+                // Replace with image URLs or keep placeholder variables
+                profileImage: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+                logo: "", // Custom logo URL if available (e.g. "https://example.com/logo.png")
+                
+                badgeText: "স্বাগতম আমার Creative Portfolio-তে",
+                heroGreeting: "হ্যালো, আমি",
+                heroBio: "আমি একজন Creative Graphic Designer, যিনি আধুনিক ও প্রফেশনাল Visual Design-এর মাধ্যমে ব্র্যান্ডকে আরও আকর্ষণীয় ও শক্তিশালীভাবে উপস্থাপন করতে কাজ করি।",
+                aboutDescription: "আমি MD Tanim Chowdhury, একজন প্রফেশনাল Graphic Designer। গত ২ বছর ধরে আমি বিভিন্ন ব্র্যান্ড, ব্যবসা ও ক্লায়েন্টের জন্য নান্দনিক এবং কার্যকর ভিজ্যুয়াল ডিজাইন তৈরি করে আসছি। সৃজনশীলতা, আধুনিক ট্রেন্ড এবং নিখুঁত ফিনিশিংয়ের মাধ্যমে ক্লায়েন্টের চাহিদানুযায়ী সঠিক ডিজাইন নিশ্চিত করাই আমার প্রধান লক্ষ্য।",
+                designPhilosophy: "সৃজনশীলতা, পরিষ্কার ভিজ্যুয়াল এবং কার্যকর ডিজাইনের মাধ্যমে একটি শক্তিশালী ব্র্যান্ড পরিচয় তৈরি করা।"
+            },
+
+            heroFloatingStats: [
+                { number: "2+", label: "Years Experience" },
+                { number: "Creative", label: "Designer" },
+                { number: "100%", label: "Client Focused" }
+            ],
+
+            rotatingTitles: [
+                "Graphic Designer",
+                "Brand Identity Designer",
+                "Visual Designer",
+                "Creative Designer"
+            ],
+
+            socialLinks: {
+                facebook: "https://www.facebook.com/share/18T6DKLqYA/",
+                linkedin: "https://www.linkedin.com/in/vezlian-crafted-from-vision-bb1609419",
+                instagram: "https://www.instagram.com/vezlian_crafted_from_vision123/",
+                behance: "https://www.behance.net/tanimchowdhury92"
+            },
+
+            skills: [
+                { name: "Adobe Photoshop", level: "Advanced", percentage: 90, icon: "fa-solid fa-pen-nib" },
+                { name: "Adobe Illustrator", level: "Advanced", percentage: 90, icon: "fa-solid fa-bezier-curve" },
+                { name: "Adobe InDesign", level: "Intermediate", percentage: 80, icon: "fa-solid fa-book-open" },
+                { name: "Brand Identity", level: "Advanced", percentage: 90, icon: "fa-solid fa-fingerprint" },
+                { name: "Social Media Design", level: "Advanced", percentage: 90, icon: "fa-solid fa-share-nodes" }
+            ],
+
+            services: [
+                { number: "01", icon: "fa-solid fa-vector-square", title: "Logo Design", description: "আপনার ব্র্যান্ডের অনন্য সত্তা প্রকাশের জন্য ইউনিক ও মর্ডান লোগো ডিজাইন।" },
+                { number: "02", icon: "fa-solid fa-id-card", title: "Brand Identity", description: "সামঞ্জস্যপূর্ণ ভিজ্যুয়াল ব্র্যান্ডিং ও সম্পূর্ণ ব্র্যান্ড গাইডলাইন তৈরি।" },
+                { number: "03", icon: "fa-solid fa-hashtag", title: "Social Media Design", description: "ফেসবুক, ইনস্টাগ্রাম ইত্যাদির জন্য আকর্ষণীয় ব্যানার ও পোস্ট ডিজাইন।" },
+                { number: "04", icon: "fa-solid fa-paper-plane", title: "Flyer Design", description: "ব্যবসার প্রচার ও অফার তুলে ধরার জন্য প্রফেশনাল ফ্লায়ার ডিজাইন।" },
+                { number: "05", icon: "fa-solid fa-image", title: "Poster Design", description: "যেকোনো ইভেন্ট বা প্রোমোশনের জন্য হাই-ইম্প্যাক্ট ভিজ্যুয়াল পোস্টার।" },
+                { number: "06", icon: "fa-solid fa-book", title: "Brochure Design", description: "আপনার পণ্য ও সেবা সুন্দরভাবে উপস্থাপনের জন্য বাই-ফোল্ড/ট্রাই-ফোল্ড ব্রোশার।" },
+                { number: "07", icon: "fa-solid fa-address-card", title: "Business Card Design", description: "স্মার্ট ও মার্জিত প্রেজেন্টেশনের জন্য প্রিমিয়াম বিজনেস কার্ড ডিজাইন।" },
+                { number: "08", icon: "fa-solid fa-box-open", title: "Packaging Design", description: "পণ্যের জন্য আকর্ষণীয় ও প্রফেশনাল প্রোডাক্ট প্যাকেজিং এবং লেবেল।" },
+                { number: "09", icon: "fa-solid fa-book-open-reader", title: "Catalogue Design", description: "পণ্য ক্যাটালগ সুন্দর লেআউটে সাজিয়ে উপস্থাপনের জন্য ক্যাটালগ ডিজাইন।" },
+                { number: "10", icon: "fa-solid fa-newspaper", title: "Magazine Design", description: "আধুনিক লেআউট ও টাইপোগ্রাফি সমৃদ্ধ ম্যাগাজিন কভার ও ইনার পেজ লেআউট।" },
+                { number: "11", icon: "fa-solid fa-shirt", title: "T-Shirt Design", description: "ট্রেন্ডি ও ইউনিক কাস্টম টি-শার্ট গ্রাফিক্স ডিজাইন।" },
+                { number: "12", icon: "fa-solid fa-film", title: "Banner Design", description: "অনলাইন বিজ্ঞাপন এবং অফলাইন প্রিন্টের জন্য হাই-কোয়ালিটি ব্যানার।" },
+                { number: "13", icon: "fa-solid fa-building", title: "Company Profile Design", description: "কোম্পানির পরিচয় ও সাফল্য প্রফেশনাল ফর্মে উপস্থাপনের জন্য প্রোফাইল ডিজাইন।" },
+                { number: "14", icon: "fa-solid fa-print", title: "Print Design", description: "সকল প্রকার প্রিন্টিং এলিমেন্টের জন্য নিখুঁত প্রেসবিল্ড ডিজাইন সার্ভিস।" }
+            ],
+
+            process: [
+                { step: "01", title: "আলোচনা", description: "প্রথমে আপনার প্রয়োজন, লক্ষ্য এবং পছন্দ সম্পর্কে বিস্তারিত বুঝে নিই।" },
+                { step: "02", title: "পরিকল্পনা", description: "Project-এর জন্য উপযুক্ত creative direction এবং visual concept তৈরি করি।" },
+                { step: "03", title: "ডিজাইন", description: "পরিকল্পনা অনুযায়ী clean, modern এবং professional design তৈরি করি।" },
+                { step: "04", title: "Revision", description: "আপনার feedback অনুযায়ী প্রয়োজনীয় পরিবর্তন করি।" },
+                { step: "05", title: "Final Delivery", description: "Final design high-quality format-এ প্রস্তুত করে deliver করি।" }
+            ],
+
+            experience: [
+                {
+                    period: "২০২৪ - বর্তমান",
+                    title: "Senior Graphic & Visual Designer",
+                    description: "ব্র্যান্ড আইডেন্টিটি, লোগো ক্রিয়েশন, সামাজিক মাধ্যম প্রোমোশনাল ব্যানার এবং প্রিন্ট মিডিয়া প্রজেক্টে স্বতন্ত্র ভূমিকা পালন।"
+                },
+                {
+                    period: "২০২২ - ২০২৪",
+                    title: "Freelance Creative Designer",
+                    description: "স্থানীয় ও আন্তর্জাতিক ক্লায়েন্টদের জন্য ২ বছর ধরে কাস্টম লোগো, ফ্লায়ার, ব্রোশার এবং প্যাকেজিং ডিজাইন প্রদান।"
+                }
+            ],
+
+            projects: [
+                {
+                    title: "Modern Brand Identity Design",
+                    category: "Branding",
+                    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
+                    description: "আধুনিক কোম্পানির জন্য মিনিমালিস্ট ও এলিগ্যান্ট ব্র্যান্ড ভিজ্যুয়াল ডিজাইন।",
+                    liveURL: "#",
+                    behanceURL: "https://www.behance.net/tanimchowdhury92",
+                    isLongPreview: false
+                },
+                {
+                    title: "Creative Minimal Logo Concept",
+                    category: "Logo",
+                    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+                    description: "ইউনিক শেপ এবং প্রিমিয়াম টাইপোগ্রাফির সমন্বয়ে লোগো কনসেপ্ট।",
+                    liveURL: "#",
+                    behanceURL: "https://www.behance.net/tanimchowdhury92",
+                    isLongPreview: false
+                },
+                {
+                    title: "Social Media Promo Design",
+                    category: "Social Media",
+                    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
+                    description: "আকর্ষণীয় কালার প্যালেট সমৃদ্ধ প্রফেশনাল পোস্টার ও সোশ্যাল পোস্ট।",
+                    liveURL: "#",
+                    behanceURL: "https://www.behance.net/tanimchowdhury92",
+                    isLongPreview: false
+                },
+                {
+                    title: "Corporate Event Poster Design",
+                    category: "Poster",
+                    image: "https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=800&q=80",
+                    description: "হাই-ইম্প্যাক্ট টাইপোগ্রাফি এবং ভিজ্যুয়াল ব্যালেন্সসহ কনফারেন্স পোস্টার।",
+                    liveURL: "#",
+                    behanceURL: "https://www.behance.net/tanimchowdhury92",
+                    isLongPreview: false
+                },
+                {
+                    title: "Business Promotional Flyer",
+                    category: "Flyer",
+                    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
+                    description: "ব্যবসার তথ্য ও সেবাসমূহ প্রফেশনাল উপায়ে প্রেজেন্টেশনের জন্য ফ্লায়ার।",
+                    liveURL: "#",
+                    behanceURL: "https://www.behance.net/tanimchowdhury92",
+                    isLongPreview: false
+                },
+                {
+                    title: "Tri-fold Corporate Brochure Preview",
+                    category: "Brochure",
+                    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80",
+                    description: "ক্লিন লেআউট ও প্রিমিয়াম ফিনিশিং সমৃদ্ধ কোম্পানির ব্রোশার।",
+                    liveURL: "#",
+                    behanceURL: "https://www.behance.net/tanimchowdhury92",
+                    isLongPreview: true
+                }
+            ],
+
+            whyWorkWithMe: [
+                { icon: "fa-solid fa-lightbulb", title: "Creative Thinking", description: "প্রতিটি project-এর জন্য নতুন ও কার্যকর visual concept তৈরির চেষ্টা করি।" },
+                { icon: "fa-solid fa-gem", title: "Professional Design", description: "Clean, balanced এবং professional design approach অনুসরণ করি।" },
+                { icon: "fa-solid fa-user-check", title: "Client Focused", description: "Client-এর প্রয়োজন ও feedback-কে গুরুত্ব দিয়ে কাজ করি।" },
+                { icon: "fa-solid fa-crop-simple", title: "Attention to Detail", description: "Typography, spacing, alignment এবং visual balance-এর প্রতি গুরুত্ব দিই।" },
+                { icon: "fa-solid fa-shield-halved", title: "Quality Focused", description: "Final design যেন professional এবং ব্যবহারযোগ্য হয় সেটিকে অগ্রাধিকার দিই।" },
+                { icon: "fa-solid fa-comments", title: "Friendly Communication", description: "Project-এর প্রতিটি ধাপে সহজ ও পরিষ্কার communication বজায় রাখি।" }
+            ],
+
+            // Currently empty as instructed (automatically hides section)
+            testimonials: [],
+
+            contact: {
+                googleScriptURL: "", // Paste Google Apps Script Web App URL here if needed
+                formEnabled: true,
+                mapEmbedURL: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115802.26197171437!2d91.80215037628173!3d24.89983731804153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054d3d2ab3029%3A0x305d77fbc21d2830!2sSylhet!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd"
+            },
+
+            seo: {
+                metaTitle: "MD Tanim Chowdhury | Professional Graphic Designer",
+                metaDescription: "MD Tanim Chowdhury একজন Creative Graphic Designer। Logo, Branding, Social Media, Poster, Flyer, Brochure এবং বিভিন্ন Visual Design নিয়ে কাজ করেন।"
+            }
+        };
+
+        // ================================
+        // INITIALIZATION & RENDERERS
+        // ================================
+        document.addEventListener('DOMContentLoaded', () => {
+            initSEO();
+            initHeaderAndFooter();
+            initHero();
+            initAbout();
+            initSkills();
+            initServices();
+            initProcess();
+            initExperience();
+            initPortfolio();
+            initWhyWorkWithMe();
+            initTestimonials();
+            initContactSection();
+            initGoogleMap();
+            initInteractions();
+        });
+
+        // Initialize SEO Tags Dynamically
+        function initSEO() {
+            document.title = portfolioData.seo.metaTitle;
+            const descMeta = document.getElementById('seo-desc');
+            if (descMeta) descMeta.setAttribute('content', portfolioData.seo.metaDescription);
+            
+            const ogTitle = document.getElementById('og-title');
+            if (ogTitle) ogTitle.setAttribute('content', portfolioData.seo.metaTitle);
+            
+            const ogDesc = document.getElementById('og-desc');
+            if (ogDesc) ogDesc.setAttribute('content', portfolioData.seo.metaDescription);
+
+            // Inject Structured Data (JSON-LD)
+            const jsonLd = {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": portfolioData.personal.fullName,
+                "alternateName": portfolioData.personal.professionalName,
+                "jobTitle": portfolioData.personal.title,
+                "telephone": portfolioData.personal.phone,
+                "email": portfolioData.personal.email,
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": portfolioData.personal.location
+                },
+                "sameAs": [
+                    portfolioData.socialLinks.facebook,
+                    portfolioData.socialLinks.linkedin,
+                    portfolioData.socialLinks.instagram,
+                    portfolioData.socialLinks.behance
+                ]
+            };
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.text = JSON.stringify(jsonLd);
+            document.head.appendChild(script);
+        }
+
+        // Helper function for logo markup
+        function createLogoMarkup(extraClass = "") {
+            if (portfolioData.personal.logo && portfolioData.personal.logo.trim() !== "") {
+                return `<img src="${portfolioData.personal.logo}" alt="${portfolioData.personal.professionalName}" class="h-9 w-auto object-contain ${extraClass}">`;
+            }
+            return `
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center font-extrabold text-slate-950 font-english shadow-lg shadow-cyan-500/20">
+                    TC
+                </div>
+                <span class="font-bold text-lg tracking-wider text-white font-english uppercase">
+                    Tanim<span class="text-cyan-400">.</span>
+                </span>
+            `;
+        }
+
+        // Helper function for social links list
+        function createSocialIconsHTML() {
+            const links = portfolioData.socialLinks;
+            let html = '';
+            
+            if (links.facebook) {
+                html += `<a href="${links.facebook}" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400/40 transition"><i class="fa-brands fa-facebook-f"></i></a>`;
+            }
+            if (links.linkedin) {
+                html += `<a href="${links.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400/40 transition"><i class="fa-brands fa-linkedin-in"></i></a>`;
+            }
+            if (links.instagram) {
+                html += `<a href="${links.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400/40 transition"><i class="fa-brands fa-instagram"></i></a>`;
+            }
+            if (links.behance) {
+                html += `<a href="${links.behance}" target="_blank" rel="noopener noreferrer" aria-label="Behance" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400/40 transition"><i class="fa-brands fa-behance"></i></a>`;
+            }
+            return html;
+        }
+
+        // Initialize Header & Footer Dynamic Elements
+        function initHeaderAndFooter() {
+            document.getElementById('nav-logo-container').innerHTML = createLogoMarkup();
+            document.getElementById('footer-logo-container').innerHTML = createLogoMarkup();
+            document.getElementById('contact-socials').innerHTML = createSocialIconsHTML();
+            document.getElementById('footer-socials').innerHTML = createSocialIconsHTML();
+            
+            document.getElementById('footer-copyright').innerHTML = `© ${new Date().getFullYear()} ${portfolioData.personal.professionalName}। সর্বস্বত্ব সংরক্ষিত।`;
+        }
+
+        // Initialize Hero Section
+        function initHero() {
+            const p = portfolioData.personal;
+            document.getElementById('hero-badge-text').innerText = p.badgeText;
+            document.getElementById('hero-greeting').innerText = p.heroGreeting;
+            document.getElementById('hero-pro-name').innerText = p.professionalName;
+            document.getElementById('hero-bio').innerText = p.heroBio;
+            
+            const profileImg = document.getElementById('hero-profile-img');
+            profileImg.src = p.profileImage;
+            profileImg.alt = p.professionalName;
+
+            const behanceBtn = document.getElementById('hero-behance-btn');
+            if (portfolioData.socialLinks.behance) {
+                behanceBtn.href = portfolioData.socialLinks.behance;
+            } else {
+                behanceBtn.style.display = 'none';
+            }
+
+            // Floating Stats Cards Around Hero Frame
+            const statsContainer = document.getElementById('hero-floating-stats-container');
+            const stats = portfolioData.heroFloatingStats;
+            
+            if (stats.length > 0) {
+                statsContainer.innerHTML = `
+                    <div class="absolute -top-4 -left-4 glass-panel p-3 px-4 rounded-2xl border border-white/20 shadow-xl pointer-events-auto transform hover:scale-105 transition duration-300">
+                        <div class="text-xl font-bold text-cyan-400 font-english">${stats[0].number}</div>
+                        <div class="text-xs text-slate-300 font-medium">${stats[0].label}</div>
+                    </div>
+                `;
+            }
+            if (stats.length > 1) {
+                statsContainer.innerHTML += `
+                    <div class="absolute bottom-6 -right-4 glass-panel p-3 px-4 rounded-2xl border border-white/20 shadow-xl pointer-events-auto transform hover:scale-105 transition duration-300">
+                        <div class="text-xl font-bold text-purple-400 font-english">${stats[1].number}</div>
+                        <div class="text-xs text-slate-300 font-medium">${stats[1].label}</div>
+                    </div>
+                `;
+            }
+
+            // Rotating Typing Text Logic
+            startTypingEffect();
+        }
+
+        function startTypingEffect() {
+            const titles = portfolioData.rotatingTitles;
+            if (!titles || titles.length === 0) return;
+            
+            let titleIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const target = document.getElementById('typed-text');
+            
+            function type() {
+                const currentTitle = titles[titleIndex];
+                
+                if (isDeleting) {
+                    target.textContent = currentTitle.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    target.textContent = currentTitle.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let speed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === currentTitle.length) {
+                    speed = 2000;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    titleIndex = (titleIndex + 1) % titles.length;
+                    speed = 500;
+                }
+
+                setTimeout(type, speed);
+            }
+
+            type();
+        }
+
+        // Initialize About Section
+        function initAbout() {
+            const p = portfolioData.personal;
+            const aboutImg = document.getElementById('about-profile-img');
+            aboutImg.src = p.profileImage;
+            aboutImg.alt = p.professionalName;
+
+            document.getElementById('about-exp-badge').innerText = p.experience;
+            document.getElementById('about-text').innerText = p.aboutDescription;
+            document.getElementById('about-philosophy').innerText = p.designPhilosophy;
+            
+            const phoneBtn = document.getElementById('about-phone-btn');
+            phoneBtn.href = `tel:${p.phone}`;
+            document.getElementById('about-phone-num').innerText = p.phone;
+        }
+
+        // Initialize Skills Section with Progress Animation
+        function initSkills() {
+            const container = document.getElementById('skills-container');
+            container.innerHTML = portfolioData.skills.map((skill, index) => `
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                                <i class="${skill.icon}"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">${skill.name}</h3>
+                                <span class="text-xs text-slate-400 font-english">${skill.level}</span>
+                            </div>
+                        </div>
+                        <span class="text-cyan-400 font-bold font-english text-sm">${skill.percentage}%</span>
+                    </div>
+
+                    <div class="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden border border-white/5">
+                        <div class="skill-progress h-full bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full" data-percentage="${skill.percentage}"></div>
+                    </div>
+                </div>
+            `).join('');
+
+            // IntersectionObserver for Skill Bars
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBars = entry.target.querySelectorAll('.skill-progress');
+                        progressBars.forEach(bar => {
+                            const pct = bar.getAttribute('data-percentage');
+                            bar.style.width = pct + '%';
+                        });
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            observer.observe(document.getElementById('skills'));
+        }
+
+        // Initialize Services Section
+        function initServices() {
+            const container = document.getElementById('services-container');
+            container.innerHTML = portfolioData.services.map(item => `
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-5">
+                            <span class="text-xs font-bold text-slate-400 font-english px-2.5 py-1 rounded-md bg-white/5 border border-white/10">${item.number}</span>
+                            <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg group-hover:scale-110 group-hover:bg-cyan-400 group-hover:text-slate-950 transition duration-300">
+                                <i class="${item.icon}"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-extrabold text-white text-lg mb-2 group-hover:text-cyan-400 transition">${item.title}</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">${item.description}</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-cyan-400 font-semibold group-hover:translate-x-1 transition">
+                        <span>সার্ভিস বিস্তারিত</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize Work Process Section
+        function initProcess() {
+            const container = document.getElementById('process-container');
+            container.innerHTML = portfolioData.process.map(item => `
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <span class="text-3xl font-extrabold font-english text-cyan-400/20 block mb-3">${item.step}</span>
+                    <h3 class="text-lg font-bold text-white mb-2">${item.title}</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${item.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Initialize Experience Section
+        function initExperience() {
+            const container = document.getElementById('experience-container');
+            container.innerHTML = portfolioData.experience.map(item => `
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-950 group-hover:scale-125 transition"></div>
+                    <div class="glass-card rounded-2xl p-6">
+                        <span class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold font-english mb-3 border border-cyan-500/20">${item.period}</span>
+                        <h3 class="text-xl font-bold text-white mb-2">${item.title}</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">${item.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize Portfolio & Filtering
+        function initPortfolio() {
+            const projects = portfolioData.projects;
+            
+            // Generate Filter Buttons dynamically
+            const categories = ["সব", ...new Set(projects.map(p => p.category))];
+            const filtersContainer = document.getElementById('portfolio-filters');
+            
+            filtersContainer.innerHTML = categories.map((cat, idx) => `
+                <button data-filter="${cat}" class="portfolio-filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${idx === 0 ? 'bg-gradient-to-r from-cyan-400 to-blue-600 text-slate-950 shadow-lg shadow-cyan-500/20' : 'glass-card text-slate-300 hover:text-white hover:bg-white/10'}">
+                    ${cat}
+                </button>
+            `).join('');
+
+            renderProjects("সব");
+
+            // Add Click Events to Filters
+            document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.portfolio-filter-btn').forEach(b => {
+                        b.classList.remove('bg-gradient-to-r', 'from-cyan-400', 'to-blue-600', 'text-slate-950', 'shadow-lg');
+                        b.classList.add('glass-card', 'text-slate-300');
+                    });
+                    
+                    e.currentTarget.classList.remove('glass-card', 'text-slate-300');
+                    e.currentTarget.classList.add('bg-gradient-to-r', 'from-cyan-400', 'to-blue-600', 'text-slate-950', 'shadow-lg');
+                    
+                    const filter = e.currentTarget.getAttribute('data-filter');
+                    renderProjects(filter);
+                });
+            });
+        }
+
+        function renderProjects(filterCategory) {
+            const container = document.getElementById('portfolio-container');
+            const filtered = filterCategory === "সব" 
+                ? portfolioData.projects 
+                : portfolioData.projects.filter(p => p.category === filterCategory);
+
+            container.innerHTML = filtered.map(item => `
+                <div class="project-card glass-card rounded-2xl overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <!-- Project Image Wrapper -->
+                        <div class="project-img-wrapper ${item.isLongPreview ? 'long-preview' : ''} h-56 sm:h-64 bg-slate-900 w-full overflow-hidden relative">
+                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover object-top" loading="lazy">
+                            <div class="absolute top-3 left-3">
+                                <span class="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-cyan-400 border border-cyan-500/30 text-xs font-semibold font-english">
+                                    ${item.category}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card Info -->
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition">${item.title}</h3>
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">${item.description}</p>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-white/5 gap-3">
+                        <a href="${item.behanceURL || '#'}" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl glass-panel text-xs font-semibold text-cyan-400 hover:bg-cyan-500/10 transition flex items-center gap-1.5">
+                            <i class="fa-brands fa-behance"></i>
+                            <span>Behance</span>
+                        </a>
+                        <a href="${item.liveURL || '#'}" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-white transition flex items-center gap-1.5">
+                            <span>প্রজেক্ট দেখুন</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize Why Work With Me
+        function initWhyWorkWithMe() {
+            const container = document.getElementById('why-me-container');
+            container.innerHTML = portfolioData.whyWorkWithMe.map(item => `
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mb-4">
+                            <i class="${item.icon}"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 font-english">${item.title}</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${item.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize Testimonials (Shows only if items exist)
+        function initTestimonials() {
+            const section = document.getElementById('testimonials');
+            const container = document.getElementById('testimonials-container');
+            
+            if (portfolioData.testimonials && portfolioData.testimonials.length > 0) {
+                section.classList.remove('hidden');
+                container.innerHTML = portfolioData.testimonials.map(t => `
+                    <div class="glass-card rounded-2xl p-6">
+                        <p class="text-slate-200 text-sm italic mb-4">"${t.review}"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center font-bold text-cyan-400">${t.name.charAt(0)}</div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">${t.name}</h4>
+                                <span class="text-slate-400 text-xs">${t.designation}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Initialize Contact Details
+        function initContactSection() {
+            const p = portfolioData.personal;
+            
+            const phoneEl = document.getElementById('contact-phone');
+            phoneEl.href = `tel:${p.phone}`;
+            phoneEl.innerText = p.phone;
+
+            const emailEl = document.getElementById('contact-email');
+            emailEl.href = `mailto:${p.email}`;
+            emailEl.innerText = p.email;
+
+            document.getElementById('contact-location').innerText = p.location;
+
+            // Form Submit Logic
+            const form = document.getElementById('portfolio-contact-form');
+            const statusBox = document.getElementById('form-status');
+            const submitBtn = document.getElementById('form-submit-btn');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('form-name').value;
+                const phone = document.getElementById('form-phone').value;
+                const email = document.getElementById('form-email').value;
+                const message = document.getElementById('form-message').value;
+
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<span>পাঠানো হচ্ছে...</span> <i class="fa-solid fa-spinner animate-spin text-xs"></i>`;
+
+                const scriptURL = portfolioData.contact.googleScriptURL;
+
+                if (scriptURL && scriptURL.trim() !== "") {
+                    try {
+                        await fetch(scriptURL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, phone, email, message, timestamp: new Date() })
+                        });
+                        showStatus("আপনার মেসেজ সফলভাবে পাঠানো হয়েছে। ধন্যবাদ!", "success");
+                        form.reset();
+                    } catch (err) {
+                        showStatus("মেসেজ পাঠাতে সমস্যা হয়েছে। পুনরায় চেষ্টা করুন।", "error");
+                    }
+                } else {
+                    // Fallback simulated success
+                    setTimeout(() => {
+                        showStatus("আপনার মেসেজ সফলভাবে পাঠানো হয়েছে। ধন্যবাদ!", "success");
+                        form.reset();
+                    }, 1000);
+                }
+
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<span>মেসেজ পাঠান</span> <i class="fa-solid fa-paper-plane text-xs"></i>`;
+            });
+
+            function showStatus(msg, type) {
+                statusBox.classList.remove('hidden', 'bg-emerald-500/20', 'text-emerald-400', 'bg-rose-500/20', 'text-rose-400', 'border-emerald-500/30', 'border-rose-500/30');
+                if (type === "success") {
+                    statusBox.classList.add('bg-emerald-500/20', 'text-emerald-400', 'border', 'border-emerald-500/30');
+                } else {
+                    statusBox.classList.add('bg-rose-500/20', 'text-rose-400', 'border', 'border-rose-500/30');
+                }
+                statusBox.innerText = msg;
+            }
+        }
+
+        // Initialize Embedded Google Map
+        function initGoogleMap() {
+            const mapSection = document.getElementById('map-section');
+            const iframe = document.getElementById('google-map-iframe');
+            
+            if (portfolioData.contact.mapEmbedURL && portfolioData.contact.mapEmbedURL.trim() !== "") {
+                iframe.src = portfolioData.contact.mapEmbedURL;
+                mapSection.classList.remove('hidden');
+            }
+        }
+
+        // Interactive Page Effects (Scroll progress, custom cursor glow, mobile menu)
+        function initInteractions() {
+            // Scroll Progress Indicator
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                document.getElementById('scroll-progress').style.width = `${progress}%`;
+
+                // Compact Navbar on scroll
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2');
+                    navbar.classList.remove('py-4');
+                } else {
+                    navbar.classList.add('py-4');
+                    navbar.classList.remove('py-2');
+                }
+            });
+
+            // Desktop Cursor Glow Follower
+            const cursorGlow = document.getElementById('cursor-glow');
+            window.addEventListener('mousemove', (e) => {
+                cursorGlow.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+            });
+
+            // Mobile Navigation Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                if (mobileMenu.classList.contains('flex')) {
+                    menuIcon.classList.remove('fa-bars-staggered');
+                    menuIcon.classList.add('fa-xmark');
+                } else {
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars-staggered');
+                }
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars-staggered');
+                });
+            });
+
+            // Back to Top Button
+            document.getElementById('back-to-top').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>
