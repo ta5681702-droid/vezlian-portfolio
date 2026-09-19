@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Tanim Chowdhury — Graphic Designer | VEZLIAN</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="loading">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content">
+            <h1 class="loader-logo">VEZLIAN</h1>
+            <p class="loader-tagline">CRAFTED FROM VISION</p>
+            <div class="loader-bar-bg">
+                <div class="loader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="brand-logo">
+                <img src="images/logo.png" alt="VEZLIAN Logo" id="navLogo">
+            </a>
+
+            <nav class="nav-links" id="navMenu">
+                <a href="#home" class="nav-link active">HOME</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#services" class="nav-link">SERVICES</a>
+                <a href="#work" class="nav-link">WORK</a>
+                <a href="#skills" class="nav-link">SKILLS</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary btn-sm magnetic-btn">LET'S TALK</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-glow"></div>
+            <div class="hero-grid-pattern"></div>
+            
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-subtitle badge-cyan">CREATIVE GRAPHIC DESIGNER</span>
+                    <h1 class="hero-title">
+                        <span id="heroFirstName">MD TANIM</span>
+                        <span id="heroLastName" class="text-gradient">CHOWDHURY</span>
+                    </h1>
+                    <h2 class="hero-role">
+                        GRAPHIC DESIGNER <span class="cyan-dot">•</span> VISUAL CREATIVE
+                    </h2>
+                    <p class="hero-description" id="heroTagline">
+                        I create clean, meaningful and visually powerful designs that help brands communicate with confidence.
+                    </p>
+                    <div class="hero-cta-group">
+                        <a href="#work" class="btn btn-primary magnetic-btn">VIEW MY WORK</a>
+                        <a href="#contact" class="btn btn-outline magnetic-btn">LET'S WORK TOGETHER</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="portrait-frame-wrapper" id="heroFrame">
+                        <div class="portrait-frame-bg"></div>
+                        <div class="portrait-image-container">
+                            <img src="images/profile.jpg" alt="MD Tanim Chowdhury" id="heroPortrait">
+                        </div>
+                        <div class="floating-badge badge-exp">
+                            <span class="badge-num" id="heroExp">2+</span>
+                            <span class="badge-lbl">Years<br>Exp.</span>
+                        </div>
+                        <div class="floating-badge badge-location">
+                            <i data-lucide="map-pin"></i>
+                            <span id="heroLocation">Bangladesh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Section -->
+        <section class="marquee-section">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>GRAPHIC DESIGN</span> <span class="cyan-star">•</span>
+                    <span>BRAND IDENTITY</span> <span class="cyan-star">•</span>
+                    <span>LOGO DESIGN</span> <span class="cyan-star">•</span>
+                    <span>SOCIAL MEDIA</span> <span class="cyan-star">•</span>
+                    <span>PRINT DESIGN</span> <span class="cyan-star">•</span>
+                    <span>CREATIVE DIRECTION</span> <span class="cyan-star">•</span>
+                </div>
+                <!-- Duplicate for infinite seamless scroll -->
+                <div class="marquee-content" aria-hidden="true">
+                    <span>GRAPHIC DESIGN</span> <span class="cyan-star">•</span>
+                    <span>BRAND IDENTITY</span> <span class="cyan-star">•</span>
+                    <span>LOGO DESIGN</span> <span class="cyan-star">•</span>
+                    <span>SOCIAL MEDIA</span> <span class="cyan-star">•</span>
+                    <span>PRINT DESIGN</span> <span class="cyan-star">•</span>
+                    <span>CREATIVE DIRECTION</span> <span class="cyan-star">•</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section section-padding">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-col">
+                        <div class="about-img-wrapper">
+                            <img src="images/profile.jpg" alt="MD Tanim Chowdhury Portrait" id="aboutPortrait">
+                            <div class="about-img-border"></div>
+                        </div>
+                    </div>
+
+                    <div class="about-content-col">
+                        <span class="section-label">ABOUT ME</span>
+                        <h2 class="section-title">Crafting Visuals with Purpose & Clarity</h2>
+                        
+                        <div class="about-text-content" id="aboutBio">
+                            <!-- Populated dynamically via script.js -->
+                        </div>
+
+                        <div class="about-stats-grid">
+                            <div class="stat-card">
+                                <h3 id="statExp">2+</h3>
+                                <p>YEARS EXPERIENCE</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>GRAPHIC</h3>
+                                <p>DESIGNER</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3 id="statLoc">BANGLADESH</h3>
+                                <p>BASED</p>
+                            </div>
+                        </div>
+
+                        <div class="about-action">
+                            <a href="#" id="downloadCvBtn" class="btn btn-primary magnetic-btn" download>
+                                <i data-lucide="download"></i> DOWNLOAD CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section section-padding">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">SERVICES</span>
+                    <h2 class="section-title">WHAT I DO</h2>
+                </div>
+
+                <div class="services-grid" id="servicesContainer">
+                    <!-- Populated dynamically via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Work Section -->
+        <section id="work" class="work-section section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">PORTFOLIO</span>
+                    <h2 class="section-title">SELECTED WORK</h2>
+                    <p class="section-subtitle">A collection of selected projects crafted with purpose, creativity and precision.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="portfolio-filters" id="portfolioFilters">
+                    <!-- Dynamic Filter Buttons Populated via script.js -->
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Dynamic Projects Populated via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Tools Section -->
+        <section id="skills" class="skills-section section-padding">
+            <div class="container">
+                <div class="skills-grid-layout">
+                    <div class="skills-col">
+                        <span class="section-label">EXPERTISE</span>
+                        <h2 class="section-title">DESIGN SKILLS</h2>
+                        <div class="skills-chips-wrapper" id="skillsContainer">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="tools-col">
+                        <span class="section-label">SOFTWARE</span>
+                        <h2 class="section-title">TOOLS I USE</h2>
+                        <div class="tools-grid" id="toolsContainer">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Process -->
+        <section class="process-section section-padding">
+            <div class="container">
+                <div class="section-header center">
+                    <span class="section-label">WORKFLOW</span>
+                    <h2 class="section-title">MY DESIGN PROCESS</h2>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-card">
+                        <span class="process-num">01</span>
+                        <h3>DISCOVER</h3>
+                        <p>Understand the idea, target audience, brand context and primary goals.</p>
+                    </div>
+                    <div class="process-card">
+                        <span class="process-num">02</span>
+                        <h3>DEFINE</h3>
+                        <p>Build the visual direction, design system, moodboards and creative strategy.</p>
+                    </div>
+                    <div class="process-card">
+                        <span class="process-num">03</span>
+                        <h3>DESIGN</h3>
+                        <p>Develop the core visual concept, explore iterations and refine every detail.</p>
+                    </div>
+                    <div class="process-card">
+                        <span class="process-num">04</span>
+                        <h3>DELIVER</h3>
+                        <p>Prepare polished final pixel-perfect assets ready for real-world print & digital use.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Details / Profile Card Section -->
+        <section class="profile-card-section section-padding">
+            <div class="container">
+                <div class="profile-card-wrapper">
+                    <div class="profile-card-img">
+                        <img src="images/profile.jpg" alt="MD Tanim Chowdhury" id="profileCardImg">
+                    </div>
+                    <div class="profile-card-details">
+                        <h3 id="profileName">MD Tanim Chowdhury</h3>
+                        <p class="profile-title" id="profileTitle">Graphic Designer</p>
+                        
+                        <ul class="profile-info-list">
+                            <li><strong>Experience:</strong> <span id="profileExp">2+ Years</span></li>
+                            <li><strong>Specialized In:</strong> <span>Branding, Print Design, Social Media, Creative Design</span></li>
+                            <li><strong>Location:</strong> <span id="profileLoc">Bangladesh</span></li>
+                            <li><strong>Available For:</strong> <span class="cyan-text">Freelance Projects</span></li>
+                        </ul>
+
+                        <div class="profile-socials" id="profileSocials">
+                            <!-- Dynamic Socials -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA Section -->
+        <section class="cta-section">
+            <div class="cta-glow"></div>
+            <div class="container center-text">
+                <h2>HAVE A PROJECT IN MIND?</h2>
+                <p>Let's turn your idea into something visually memorable.</p>
+                <a href="#contact" class="btn btn-primary btn-lg magnetic-btn">START A PROJECT →</a>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info-col">
+                        <span class="section-label">GET IN TOUCH</span>
+                        <h2 class="section-title">LET'S WORK TOGETHER</h2>
+                        <p>Have a question or want to work together? Send a message or reach out through social media.</p>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="ci-label">EMAIL</span>
+                                <a href="#" id="contactEmail" class="ci-value">loading...</a>
+                            </div>
+
+                            <div class="contact-item">
+                                <span class="ci-label">SOCIAL</span>
+                                <div class="social-links-inline" id="contactSocials">
+                                    <!-- Dynamic -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-col">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="formName">Name</label>
+                                <input type="text" id="formName" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formEmail">Email</label>
+                                <input type="email" id="formEmail" placeholder="Your Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formType">Project Type</label>
+                                <select id="formType">
+                                    <option value="Brand Identity">Brand Identity</option>
+                                    <option value="Logo Design">Logo Design</option>
+                                    <option value="Social Media Design">Social Media Design</option>
+                                    <option value="Print / Packaging">Print / Packaging</option>
+                                    <option value="Other">Other Creative Request</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="formMessage">Message</label>
+                                <textarea id="formMessage" rows="5" placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full magnetic-btn">SEND MESSAGE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Detail Modal -->
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-content" id="modalContent">
+                <!-- Dynamically populated by JS when project clicked -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="VEZLIAN Logo" class="footer-logo">
+                <p class="footer-tagline">VEZLIAN — CRAFTED FROM VISION</p>
+            </div>
+            <div class="footer-info">
+                <p id="footerNameTitle">MD Tanim Chowdhury — Graphic Designer</p>
+                <p class="copyright">&copy; 2026 MD Tanim Chowdhury. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Logic Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
